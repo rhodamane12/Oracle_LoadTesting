@@ -1,0 +1,413 @@
+{
+	"info": {
+		"_postman_id": "187ba4c6-e432-4ff0-a51f-6b8c12801809",
+		"name": "QA_Collection_UAT",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "CustomerCreation",
+			"item": [
+				{
+					"name": "CustomerAccount",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic dmVua2F0YS5hbm5hcGFyZWRkeUBzdW5wb3dlci5jb20udGVzdDpNYW5pQDc4Ng=="
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"process_customer_account_request\": {\r\n      \"message_header\": {\r\n         \"transaction_id\": \"2d000938-2987-2924-56bb-cd1911686b14\",\r\n         \"source_system_id\": \"SFDC\"\r\n      },\r\n      \"customer\": {\r\n         \"sales_type\": \"LEASE\",\r\n         \"sales_channel\": \"COMBO\",\r\n         \"customer_name\": \"Oleksandr AutoTest05\",\r\n         \"customer_classification\": \"HOME OWNER\"\r\n      }\r\n   }\r\n}"
+						},
+						"url": {
+							"raw": "https://use6-cai.dm-us.informaticacloud.com/active-bpel/services/REST/daDdsGzWHErkBWI36CLd65/CustomerAccount/",
+							"protocol": "https",
+							"host": [
+								"use6-cai",
+								"dm-us",
+								"informaticacloud",
+								"com"
+							],
+							"path": [
+								"active-bpel",
+								"services",
+								"REST",
+								"daDdsGzWHErkBWI36CLd65",
+								"CustomerAccount",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CustomerSite",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic dmVua2F0YS5hbm5hcGFyZWRkeUBzdW5wb3dlci5jb20udGVzdDpNYW5pQDc4Ng=="
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"process_customer_request\": {\r\n\t\t\"message_header\": {\r\n\t\t\t\"source_system_id\": \"sfdc\",\r\n\t\t\t\"transaction_id\": \"123456\"\r\n\t\t},\r\n\t\t\"customer\": {\r\n\t\t\t\"sales_type\": \"SPWR_CASH\",\r\n\t\t\t\"sales_channel\": \"RVAR\",\r\n\t\t\t\"account_number\": \"126029\",\r\n\t\t\t\"customer_name\": \"\",\r\n            \"customer_classification\": \"\"\r\n\t\t\t\r\n\t\t},\r\n\t\t\"ship_to_sites\": {\r\n\t\t\t\"ship_to_site\":\r\n\t\t\t{\r\n\t\t\t\t\"bill_to_flag\": \"N\",\r\n\t\t\t\t\"ship_to_flag\": \"Y\",\r\n\t\t\t\t\"country\": \"United States\",\r\n\t\t\t\t\"address1\": \"34567 SunPower\",\r\n\t\t\t\t\"address2\": \"\",\r\n\t\t\t\t\"address3\": \"\",\r\n\t\t\t\t\"address4\": \"\",\r\n\t\t\t\t\"city\": \"Austin\",\r\n\t\t\t\t\"postal_code\": \"78758\",\r\n\t\t\t\t\"state\": \"TX\",\r\n\t\t\t\t\"province\": \"\",\r\n\t\t\t\t\"county\": \"Travis\",\r\n\t\t\t\t\"cust_acct_site_id\": \"\",\r\n\t\t\t\t\"cust_account_id\": \"\",\r\n\t\t\t\t\"site_use_id\": \"\",\r\n\t\t\t\t\"site_use_code\": \"\",\r\n\t\t\t\t\"contact_id\": \"\"\r\n\t\t\t}\r\n\t\t}\r\n\t}\r\n}"
+						},
+						"url": {
+							"raw": "https://use6-cai.dm-us.informaticacloud.com/active-bpel/services/REST/daDdsGzWHErkBWI36CLd65/CustomerSite/",
+							"protocol": "https",
+							"host": [
+								"use6-cai",
+								"dm-us",
+								"informaticacloud",
+								"com"
+							],
+							"path": [
+								"active-bpel",
+								"services",
+								"REST",
+								"daDdsGzWHErkBWI36CLd65",
+								"CustomerSite",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CreateContact",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic dmVua2F0YS5hbm5hcGFyZWRkeUBzdW5wb3dlci5jb20uZGV2Ok1hbmlANzg2"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"process_customer_contact_request\": {\n    \"message_header\": {\n      \"transaction_id\": \"74e8728d-8e2c-47c9-8a05-f09ceb81c52c\",\n      \"source_system_id\": \"SFDC\"\n    },\n    \"contact_request\": {\n      \"role_type\": null,\n      \"primary_flag\": null,\n      \"phone_number\": \"(913) 000-0000\",\n      \"phone_country_code\": null,\n      \"phone_area_code\": null,\n      \"person_middle_name\": null,\n      \"person_last_name\": \"Info\",\n      \"person_first_name\": \"Test\",\n      \"mobile_no\": null,\n      \"fax_no\": null,\n      \"email_address\": \"test_info@gmail.com\",\n      \"contact_type\": \"SHIP_TO\",\n      \"account_number\": \"126418\"\n    }\n  }\n}"
+						},
+						"url": {
+							"raw": "https://use6-cai.dm-us.informaticacloud.com/active-bpel/services/REST/daDdsGzWHErkBWI36CLd65/CustomerContact",
+							"protocol": "https",
+							"host": [
+								"use6-cai",
+								"dm-us",
+								"informaticacloud",
+								"com"
+							],
+							"path": [
+								"active-bpel",
+								"services",
+								"REST",
+								"daDdsGzWHErkBWI36CLd65",
+								"CustomerContact"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "pricecheck",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"pricing_order_request\": {\r\n    \"message_header\": {\r\n      \"transaction_id\": \"1234\",\r\n      \"source_system_id\": \"fineng\"\r\n    },\r\n    \"sales_order\": {\r\n      \"order_header\": {\r\n        \"channel_type\": \"RVAR\",\r\n        \"full_monitoring_opt_out\": \"N\",\r\n        \"racking_opt_out\": \"N\",\r\n        \"sales_type\": \"PURCHASE\",\r\n        \"ship_to_state_code\": \"CA\",\r\n        \"system_count\": 1,\r\n        \"country\": \"US\",\r\n        \"cust_account_number\": \"1102\"\r\n      },\r\n      \"order_lines\": {\r\n        \"order_line\": [\r\n          {\r\n            \"ordered_quantity\": 24,\r\n            \"product_line_type\": \"Bundle\",\r\n            \"ordered_item\": \"530110\"\r\n          },\r\n          {\r\n            \"ordered_quantity\": 24,\r\n            \"product_line_type\": \"Bundle\",\r\n            \"ordered_item\": \"531843\"\r\n          }\r\n        ]\r\n      }\r\n    }\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://use6-cai.dm-us.informaticacloud.com/active-bpel/services/REST/Pricing",
+					"protocol": "https",
+					"host": [
+						"use6-cai",
+						"dm-us",
+						"informaticacloud",
+						"com"
+					],
+					"path": [
+						"active-bpel",
+						"services",
+						"REST",
+						"Pricing"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "BookedOrders",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://use6-cai.dm-us.informaticacloud.com/active-bpel/services/REST/daDdsGzWHErkBWI36CLd65/SalesOrder/7413267",
+					"protocol": "https",
+					"host": [
+						"use6-cai",
+						"dm-us",
+						"informaticacloud",
+						"com"
+					],
+					"path": [
+						"active-bpel",
+						"services",
+						"REST",
+						"daDdsGzWHErkBWI36CLd65",
+						"SalesOrder",
+						"7413267"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "OrderDetails",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://use6-cai.dm-us.informaticacloud.com/active-bpel/services/REST/daDdsGzWHErkBWI36CLd65/SalesOrder?customer_account_number=25633&order_status=OPEN&app=RVAR&sort=order_date:desc",
+					"protocol": "https",
+					"host": [
+						"use6-cai",
+						"dm-us",
+						"informaticacloud",
+						"com"
+					],
+					"path": [
+						"active-bpel",
+						"services",
+						"REST",
+						"daDdsGzWHErkBWI36CLd65",
+						"SalesOrder"
+					],
+					"query": [
+						{
+							"key": "customer_account_number",
+							"value": "25633"
+						},
+						{
+							"key": "order_status",
+							"value": "OPEN"
+						},
+						{
+							"key": "app",
+							"value": "RVAR"
+						},
+						{
+							"key": "sort",
+							"value": "order_date:desc"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CreateOrder",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"process_order_request\": {\r\n    \"sales_order_collection\": {\r\n      \"sales_order\": {\r\n        \"sales_order_lines\": [\r\n          {\r\n            \"sales_order_line\": {\r\n              \"wattage_type\": null,\r\n              \"vendor_type\": null,\r\n              \"vendor_site_code\": null,\r\n              \"vendor_number\": null,\r\n              \"unit_selling_price\": null,\r\n              \"shipping_method_code\": null,\r\n              \"shipping_method\": null,\r\n              \"ship_to_state\": null,\r\n              \"ship_to_site_id\": null,\r\n              \"ship_to_postal_code\": null,\r\n              \"ship_to_org_id\": null,\r\n              \"ship_to_county\": null,\r\n              \"ship_to_country\": null,\r\n              \"ship_to_contact_id\": null,\r\n              \"ship_to_city\": null,\r\n              \"ship_to_address4\": null,\r\n              \"ship_to_address3\": null,\r\n              \"ship_to_address2\": null,\r\n              \"ship_to_address1\": null,\r\n              \"ship_from_org_id\": null,\r\n              \"schedule_ship_date\": null,\r\n              \"schedule_arrival_date\": null,\r\n              \"return_status\": null,\r\n              \"return_reason_code\": null,\r\n              \"return_flag\": null,\r\n              \"request_date\": \"2021-09-30\",\r\n              \"product_type\": \"Bundle\",\r\n              \"party_type\": null,\r\n              \"org_id\": null,\r\n              \"ordered_quantity\": \"1\",\r\n              \"ordered_item\": \"102868\",\r\n              \"order_quantity_uom\": null,\r\n              \"order_line_type\": \"Standard Line\",\r\n              \"operation\": \"CREATE\",\r\n              \"line_type_id\": null,\r\n              \"line_number\": \"1\",\r\n              \"line_id\": null,\r\n              \"item_type\": null,\r\n              \"invoice_to_org_id\": null,\r\n              \"invoice_to_contact_id\": null,\r\n              \"inventory_item_id\": null,\r\n              \"header_id\": null,\r\n              \"flow_status_code\": null,\r\n              \"crm_order_line_id\": null,\r\n              \"crm_id\": null,\r\n              \"created_by\": null,\r\n              \"context\": null,\r\n              \"change_reason\": null,\r\n              \"change_comments\": null,\r\n              \"cancelled_quantity\": null,\r\n              \"cancelled_flag\": null,\r\n              \"calculate_price_flag\": null,\r\n              \"booked_flag\": null,\r\n              \"bill_to_site_id\": null,\r\n              \"attribute9\": null,\r\n              \"attribute8\": null,\r\n              \"attribute7\": null,\r\n              \"attribute6\": null,\r\n              \"attribute5\": null,\r\n              \"attribute4\": null,\r\n              \"attribute3\": null,\r\n              \"attribute20\": null,\r\n              \"attribute2\": null,\r\n              \"attribute19\": null,\r\n              \"attribute18\": null,\r\n              \"attribute17\": null,\r\n              \"attribute16\": null,\r\n              \"attribute15\": null,\r\n              \"attribute14\": null,\r\n              \"attribute13\": null,\r\n              \"attribute12\": null,\r\n              \"attribute11\": null,\r\n              \"attribute10\": null,\r\n              \"attribute1\": null,\r\n              \"arrival_set_id\": null,\r\n              \"agreement_id\": null,\r\n              \"actual_shipment_date\": null,\r\n              \"actual_arrival_date\": null,\r\n              \"accounting_rule_id\": null\r\n            }\r\n          },\r\n          {\r\n            \"sales_order_line\": {\r\n              \"wattage_type\": null,\r\n              \"vendor_type\": null,\r\n              \"vendor_site_code\": null,\r\n              \"vendor_number\": null,\r\n              \"unit_selling_price\": null,\r\n              \"shipping_method_code\": null,\r\n              \"shipping_method\": null,\r\n              \"ship_to_state\": null,\r\n              \"ship_to_site_id\": null,\r\n              \"ship_to_postal_code\": null,\r\n              \"ship_to_org_id\": null,\r\n              \"ship_to_county\": null,\r\n              \"ship_to_country\": null,\r\n              \"ship_to_contact_id\": null,\r\n              \"ship_to_city\": null,\r\n              \"ship_to_address4\": null,\r\n              \"ship_to_address3\": null,\r\n              \"ship_to_address2\": null,\r\n              \"ship_to_address1\": null,\r\n              \"ship_from_org_id\": null,\r\n              \"schedule_ship_date\": null,\r\n              \"schedule_arrival_date\": null,\r\n              \"return_status\": null,\r\n              \"return_reason_code\": null,\r\n              \"return_flag\": null,\r\n              \"request_date\": \"2021-09-30\",\r\n              \"product_type\": \"Bundle\",\r\n              \"party_type\": null,\r\n              \"org_id\": null,\r\n              \"ordered_quantity\": \"8\",\r\n              \"ordered_item\": \"530205\",\r\n              \"order_quantity_uom\": null,\r\n              \"order_line_type\": \"Standard Line\",\r\n              \"operation\": \"CREATE\",\r\n              \"line_type_id\": null,\r\n              \"line_number\": \"2\",\r\n              \"line_id\": null,\r\n              \"item_type\": null,\r\n              \"invoice_to_org_id\": null,\r\n              \"invoice_to_contact_id\": null,\r\n              \"inventory_item_id\": null,\r\n              \"header_id\": null,\r\n              \"flow_status_code\": null,\r\n              \"crm_order_line_id\": null,\r\n              \"crm_id\": null,\r\n              \"created_by\": null,\r\n              \"context\": null,\r\n              \"change_reason\": null,\r\n              \"change_comments\": null,\r\n              \"cancelled_quantity\": null,\r\n              \"cancelled_flag\": null,\r\n              \"calculate_price_flag\": null,\r\n              \"booked_flag\": null,\r\n              \"bill_to_site_id\": null,\r\n              \"attribute9\": null,\r\n              \"attribute8\": null,\r\n              \"attribute7\": null,\r\n              \"attribute6\": null,\r\n              \"attribute5\": null,\r\n              \"attribute4\": null,\r\n              \"attribute3\": null,\r\n              \"attribute20\": null,\r\n              \"attribute2\": null,\r\n              \"attribute19\": null,\r\n              \"attribute18\": null,\r\n              \"attribute17\": null,\r\n              \"attribute16\": null,\r\n              \"attribute15\": null,\r\n              \"attribute14\": null,\r\n              \"attribute13\": null,\r\n              \"attribute12\": null,\r\n              \"attribute11\": null,\r\n              \"attribute10\": null,\r\n              \"attribute1\": null,\r\n              \"arrival_set_id\": null,\r\n              \"agreement_id\": null,\r\n              \"actual_shipment_date\": null,\r\n              \"actual_arrival_date\": null,\r\n              \"accounting_rule_id\": null\r\n            }\r\n          },\r\n          {\r\n            \"sales_order_line\": {\r\n              \"wattage_type\": null,\r\n              \"vendor_type\": null,\r\n              \"vendor_site_code\": null,\r\n              \"vendor_number\": null,\r\n              \"unit_selling_price\": null,\r\n              \"shipping_method_code\": null,\r\n              \"shipping_method\": null,\r\n              \"ship_to_state\": null,\r\n              \"ship_to_site_id\": null,\r\n              \"ship_to_postal_code\": null,\r\n              \"ship_to_org_id\": null,\r\n              \"ship_to_county\": null,\r\n              \"ship_to_country\": null,\r\n              \"ship_to_contact_id\": null,\r\n              \"ship_to_city\": null,\r\n              \"ship_to_address4\": null,\r\n              \"ship_to_address3\": null,\r\n              \"ship_to_address2\": null,\r\n              \"ship_to_address1\": null,\r\n              \"ship_from_org_id\": null,\r\n              \"schedule_ship_date\": null,\r\n              \"schedule_arrival_date\": null,\r\n              \"return_status\": null,\r\n              \"return_reason_code\": null,\r\n              \"return_flag\": null,\r\n              \"request_date\": \"2021-09-30\",\r\n              \"product_type\": \"Bundle\",\r\n              \"party_type\": null,\r\n              \"org_id\": null,\r\n              \"ordered_quantity\": \"1\",\r\n              \"ordered_item\": \"529027\",\r\n              \"order_quantity_uom\": null,\r\n              \"order_line_type\": \"Standard Line\",\r\n              \"operation\": \"CREATE\",\r\n              \"line_type_id\": null,\r\n              \"line_number\": \"3\",\r\n              \"line_id\": null,\r\n              \"item_type\": null,\r\n              \"invoice_to_org_id\": null,\r\n              \"invoice_to_contact_id\": null,\r\n              \"inventory_item_id\": null,\r\n              \"header_id\": null,\r\n              \"flow_status_code\": null,\r\n              \"crm_order_line_id\": null,\r\n              \"crm_id\": null,\r\n              \"created_by\": null,\r\n              \"context\": null,\r\n              \"change_reason\": null,\r\n              \"change_comments\": null,\r\n              \"cancelled_quantity\": null,\r\n              \"cancelled_flag\": null,\r\n              \"calculate_price_flag\": null,\r\n              \"booked_flag\": null,\r\n              \"bill_to_site_id\": null,\r\n              \"attribute9\": null,\r\n              \"attribute8\": null,\r\n              \"attribute7\": null,\r\n              \"attribute6\": null,\r\n              \"attribute5\": null,\r\n              \"attribute4\": null,\r\n              \"attribute3\": null,\r\n              \"attribute20\": null,\r\n              \"attribute2\": null,\r\n              \"attribute19\": null,\r\n              \"attribute18\": null,\r\n              \"attribute17\": null,\r\n              \"attribute16\": null,\r\n              \"attribute15\": null,\r\n              \"attribute14\": null,\r\n              \"attribute13\": null,\r\n              \"attribute12\": null,\r\n              \"attribute11\": null,\r\n              \"attribute10\": null,\r\n              \"attribute1\": null,\r\n              \"arrival_set_id\": null,\r\n              \"agreement_id\": null,\r\n              \"actual_shipment_date\": null,\r\n              \"actual_arrival_date\": null,\r\n              \"accounting_rule_id\": null\r\n            }\r\n          },\r\n          {\r\n            \"sales_order_line\": {\r\n              \"wattage_type\": null,\r\n              \"vendor_type\": null,\r\n              \"vendor_site_code\": null,\r\n              \"vendor_number\": null,\r\n              \"unit_selling_price\": null,\r\n              \"shipping_method_code\": null,\r\n              \"shipping_method\": null,\r\n              \"ship_to_state\": null,\r\n              \"ship_to_site_id\": null,\r\n              \"ship_to_postal_code\": null,\r\n              \"ship_to_org_id\": null,\r\n              \"ship_to_county\": null,\r\n              \"ship_to_country\": null,\r\n              \"ship_to_contact_id\": null,\r\n              \"ship_to_city\": null,\r\n              \"ship_to_address4\": null,\r\n              \"ship_to_address3\": null,\r\n              \"ship_to_address2\": null,\r\n              \"ship_to_address1\": null,\r\n              \"ship_from_org_id\": null,\r\n              \"schedule_ship_date\": null,\r\n              \"schedule_arrival_date\": null,\r\n              \"return_status\": null,\r\n              \"return_reason_code\": null,\r\n              \"return_flag\": null,\r\n              \"request_date\": \"2021-09-30\",\r\n              \"product_type\": \"Bundle\",\r\n              \"party_type\": null,\r\n              \"org_id\": null,\r\n              \"ordered_quantity\": \"1\",\r\n              \"ordered_item\": \"532173\",\r\n              \"order_quantity_uom\": null,\r\n              \"order_line_type\": \"Standard Line\",\r\n              \"operation\": \"CREATE\",\r\n              \"line_type_id\": null,\r\n              \"line_number\": \"4\",\r\n              \"line_id\": null,\r\n              \"item_type\": null,\r\n              \"invoice_to_org_id\": null,\r\n              \"invoice_to_contact_id\": null,\r\n              \"inventory_item_id\": null,\r\n              \"header_id\": null,\r\n              \"flow_status_code\": null,\r\n              \"crm_order_line_id\": null,\r\n              \"crm_id\": null,\r\n              \"created_by\": null,\r\n              \"context\": null,\r\n              \"change_reason\": null,\r\n              \"change_comments\": null,\r\n              \"cancelled_quantity\": null,\r\n              \"cancelled_flag\": null,\r\n              \"calculate_price_flag\": null,\r\n              \"booked_flag\": null,\r\n              \"bill_to_site_id\": null,\r\n              \"attribute9\": null,\r\n              \"attribute8\": null,\r\n              \"attribute7\": null,\r\n              \"attribute6\": null,\r\n              \"attribute5\": null,\r\n              \"attribute4\": null,\r\n              \"attribute3\": null,\r\n              \"attribute20\": null,\r\n              \"attribute2\": null,\r\n              \"attribute19\": null,\r\n              \"attribute18\": null,\r\n              \"attribute17\": null,\r\n              \"attribute16\": null,\r\n              \"attribute15\": null,\r\n              \"attribute14\": null,\r\n              \"attribute13\": null,\r\n              \"attribute12\": null,\r\n              \"attribute11\": null,\r\n              \"attribute10\": null,\r\n              \"attribute1\": null,\r\n              \"arrival_set_id\": null,\r\n              \"agreement_id\": null,\r\n              \"actual_shipment_date\": null,\r\n              \"actual_arrival_date\": null,\r\n              \"accounting_rule_id\": null\r\n            }\r\n          },\r\n          {\r\n            \"sales_order_line\": {\r\n              \"wattage_type\": null,\r\n              \"vendor_type\": null,\r\n              \"vendor_site_code\": null,\r\n              \"vendor_number\": null,\r\n              \"unit_selling_price\": null,\r\n              \"shipping_method_code\": null,\r\n              \"shipping_method\": null,\r\n              \"ship_to_state\": null,\r\n              \"ship_to_site_id\": null,\r\n              \"ship_to_postal_code\": null,\r\n              \"ship_to_org_id\": null,\r\n              \"ship_to_county\": null,\r\n              \"ship_to_country\": null,\r\n              \"ship_to_contact_id\": null,\r\n              \"ship_to_city\": null,\r\n              \"ship_to_address4\": null,\r\n              \"ship_to_address3\": null,\r\n              \"ship_to_address2\": null,\r\n              \"ship_to_address1\": null,\r\n              \"ship_from_org_id\": null,\r\n              \"schedule_ship_date\": null,\r\n              \"schedule_arrival_date\": null,\r\n              \"return_status\": null,\r\n              \"return_reason_code\": null,\r\n              \"return_flag\": null,\r\n              \"request_date\": \"2021-09-30\",\r\n              \"product_type\": \"Bundle\",\r\n              \"party_type\": null,\r\n              \"org_id\": null,\r\n              \"ordered_quantity\": \"1\",\r\n              \"ordered_item\": \"534278\",\r\n              \"order_quantity_uom\": null,\r\n              \"order_line_type\": \"Standard Line\",\r\n              \"operation\": \"CREATE\",\r\n              \"line_type_id\": null,\r\n              \"line_number\": \"5\",\r\n              \"line_id\": null,\r\n              \"item_type\": null,\r\n              \"invoice_to_org_id\": null,\r\n              \"invoice_to_contact_id\": null,\r\n              \"inventory_item_id\": null,\r\n              \"header_id\": null,\r\n              \"flow_status_code\": null,\r\n              \"crm_order_line_id\": null,\r\n              \"crm_id\": null,\r\n              \"created_by\": null,\r\n              \"context\": null,\r\n              \"change_reason\": null,\r\n              \"change_comments\": null,\r\n              \"cancelled_quantity\": null,\r\n              \"cancelled_flag\": null,\r\n              \"calculate_price_flag\": null,\r\n              \"booked_flag\": null,\r\n              \"bill_to_site_id\": null,\r\n              \"attribute9\": null,\r\n              \"attribute8\": null,\r\n              \"attribute7\": null,\r\n              \"attribute6\": null,\r\n              \"attribute5\": null,\r\n              \"attribute4\": null,\r\n              \"attribute3\": null,\r\n              \"attribute20\": null,\r\n              \"attribute2\": null,\r\n              \"attribute19\": null,\r\n              \"attribute18\": null,\r\n              \"attribute17\": null,\r\n              \"attribute16\": null,\r\n              \"attribute15\": null,\r\n              \"attribute14\": null,\r\n              \"attribute13\": null,\r\n              \"attribute12\": null,\r\n              \"attribute11\": null,\r\n              \"attribute10\": null,\r\n              \"attribute1\": null,\r\n              \"arrival_set_id\": null,\r\n              \"agreement_id\": null,\r\n              \"actual_shipment_date\": null,\r\n              \"actual_arrival_date\": null,\r\n              \"accounting_rule_id\": null\r\n            }\r\n          }\r\n        ],\r\n        \"sales_order_header\": {\r\n          \"warehouse_org_id\": null,\r\n          \"vendor_site_code\": null,\r\n          \"vendor_number\": null,\r\n          \"transactional_curr_code\": null,\r\n          \"tax_identifier\": null,\r\n          \"special_instructions\": \"||Job Site - Residence|No||No|None|\",\r\n          \"sold_to_org_id\": null,\r\n          \"sold_from_org_id\": null,\r\n          \"smartpack_flag\": null,\r\n          \"shipping_method_code\": null,\r\n          \"shipping_method\": null,\r\n          \"shipping_instructions\": null,\r\n          \"ship_to_state\": null,\r\n          \"ship_to_site_id\": \"1487841\",\r\n          \"ship_to_postal_code\": null,\r\n          \"ship_to_org_id\": null,\r\n          \"ship_to_county\": null,\r\n          \"ship_to_country\": null,\r\n          \"ship_to_contact_id\": \"2886763\",\r\n          \"ship_to_contact\": null,\r\n          \"ship_to_city\": null,\r\n          \"ship_to_address4\": null,\r\n          \"ship_to_address3\": null,\r\n          \"ship_to_address2\": null,\r\n          \"ship_to_address1\": null,\r\n          \"ship_from_org_id\": null,\r\n          \"salesrep_id\": null,\r\n          \"sales_type\": \"PURCHASE\",\r\n          \"sales_channel_code\": null,\r\n          \"return_status\": null,\r\n          \"return_flag\": null,\r\n          \"request_date\": \"2021-09-30\",\r\n          \"racking_opt_out\": \"Y\",\r\n          \"psr_name\": null,\r\n          \"psr_email_id\": null,\r\n          \"price_list_id\": null,\r\n          \"payment_term_id\": null,\r\n          \"party_type\": null,\r\n          \"partner_name\": null,\r\n          \"partner_acc_number\": null,\r\n          \"order_type_name\": null,\r\n          \"order_type_id\": null,\r\n          \"order_source_id\": null,\r\n          \"order_number\": null,\r\n          \"oracle_user_id\": null,\r\n          \"operation\": \"CREATE\",\r\n          \"ok_to_ship_flag\": \"RELEASE\",\r\n          \"new_order_class\": null,\r\n          \"monitoring_opt_out\": null,\r\n          \"invoice_to_org_id\": null,\r\n          \"invoice_to_contact_id\": null,\r\n          \"inverter_type\": null,\r\n          \"interface_message\": null,\r\n          \"header_id\": null,\r\n          \"freight_terms_code\": null,\r\n          \"financier\": null,\r\n          \"data_source\": \"SFDC\",\r\n          \"cust_po_number\": \"ManualTest Noser 630\",\r\n          \"cust_acct_number\": \"25633\",\r\n          \"crm_id\": null,\r\n          \"country\": null,\r\n          \"channel_type\": \"RVAR\",\r\n          \"change_requester\": \"EXTERNAL\",\r\n          \"change_reason\": null,\r\n          \"change_comments\": null,\r\n          \"cancelled_flag\": null,\r\n          \"bill_to_state\": null,\r\n          \"bill_to_site_id\": \"113552\",\r\n          \"bill_to_postal_code\": null,\r\n          \"bill_to_county\": null,\r\n          \"bill_to_country\": null,\r\n          \"bill_to_contact_id\": null,\r\n          \"bill_to_contact\": null,\r\n          \"bill_to_city\": null,\r\n          \"bill_to_address4\": null,\r\n          \"bill_to_address3\": null,\r\n          \"bill_to_address2\": null,\r\n          \"bill_to_address1\": null,\r\n          \"attribute9\": null,\r\n          \"attribute8\": null,\r\n          \"attribute7\": null,\r\n          \"attribute6\": null,\r\n          \"attribute5\": null,\r\n          \"attribute4\": null,\r\n          \"attribute3\": null,\r\n          \"attribute20\": null,\r\n          \"attribute2\": null,\r\n          \"attribute19\": null,\r\n          \"attribute18\": \"STANDARD\",\r\n          \"attribute17\": null,\r\n          \"attribute16\": null,\r\n          \"attribute15\": null,\r\n          \"attribute14\": null,\r\n          \"attribute13\": null,\r\n          \"attribute12\": null,\r\n          \"attribute11\": null,\r\n          \"attribute10\": null,\r\n          \"attribute1\": null,\r\n          \"accounting_rule_id\": null\r\n        }\r\n      }\r\n    },\r\n    \"message_header\": {\r\n      \"transaction_id\": \"61b2b1fb-60b7-8b6a-b92c-972979f9aebf\",\r\n      \"source_system_id\": \"SFDC\"\r\n    }\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://use6-cai.dm-us.informaticacloud.com/active-bpel/services/REST/daDdsGzWHErkBWI36CLd65/SalesOrder",
+					"protocol": "https",
+					"host": [
+						"use6-cai",
+						"dm-us",
+						"informaticacloud",
+						"com"
+					],
+					"path": [
+						"active-bpel",
+						"services",
+						"REST",
+						"daDdsGzWHErkBWI36CLd65",
+						"SalesOrder"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "StatementOfAccountDetails",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://use6-cai.dm-us.informaticacloud.com/active-bpel/rt/StatementOfAccountDetails?account_number=25633",
+					"protocol": "https",
+					"host": [
+						"use6-cai",
+						"dm-us",
+						"informaticacloud",
+						"com"
+					],
+					"path": [
+						"active-bpel",
+						"rt",
+						"StatementOfAccountDetails"
+					],
+					"query": [
+						{
+							"key": "account_number",
+							"value": "25633"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateSOAPaymentService",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"updatePaymentInput\": {\n\t\t\"oracle_account_number\": \"24855\",\n\t\t\"invoice_details\": {\n\t\t\t\"invoice_detail_item\": {\n\t\t\t\t\"invoice_date\": \"2017-04-04\",\n\t\t\t\t\"invoice_number\": \"1523507\",\n\t\t\t\t\"description\": \"test\",\n\t\t\t\t\"payment_reference\": \"test\"\n\t\t\t}\n\t\t}\n\t}\n}"
+				},
+				"url": {
+					"raw": "https://use6-cai.dm-us.informaticacloud.com/active-bpel/rt/UpdateSOAPaymentService",
+					"protocol": "https",
+					"host": [
+						"use6-cai",
+						"dm-us",
+						"informaticacloud",
+						"com"
+					],
+					"path": [
+						"active-bpel",
+						"rt",
+						"UpdateSOAPaymentService"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CRDnHolidays",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic dmVua2F0YS5hbm5hcGFyZWRkeUBzdW5wb3dlci5jb20ucHJvZDpIYW5zaHVAMTQz"
+					}
+				],
+				"url": {
+					"raw": "https://use6-cai.dm-us.informaticacloud.com/active-bpel/services/REST/daDdsGzWHErkBWI36CLd65/OMUtils/OrderManagementDates?sales_type=PURCHASE&channel_type=RVAR&country=US&state=CA&city=Sunnyvale&zipcode=94086",
+					"protocol": "https",
+					"host": [
+						"use6-cai",
+						"dm-us",
+						"informaticacloud",
+						"com"
+					],
+					"path": [
+						"active-bpel",
+						"services",
+						"REST",
+						"daDdsGzWHErkBWI36CLd65",
+						"OMUtils",
+						"OrderManagementDates"
+					],
+					"query": [
+						{
+							"key": "sales_type",
+							"value": "PURCHASE"
+						},
+						{
+							"key": "channel_type",
+							"value": "RVAR"
+						},
+						{
+							"key": "country",
+							"value": "US"
+						},
+						{
+							"key": "state",
+							"value": "CA"
+						},
+						{
+							"key": "city",
+							"value": "Sunnyvale"
+						},
+						{
+							"key": "zipcode",
+							"value": "94086"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "basic",
+		"basic": [
+			{
+				"key": "password",
+				"value": "TestMypr0j",
+				"type": "string"
+			},
+			{
+				"key": "username",
+				"value": "sunpower_qa@sunpower.com.test",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

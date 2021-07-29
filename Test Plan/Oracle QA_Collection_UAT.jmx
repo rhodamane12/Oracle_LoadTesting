@@ -1,0 +1,1006 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="5.0" jmeter="5.4.1">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Oracle Load Testing" enabled="true">
+      <stringProp name="TestPlan.comments"></stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.tearDown_on_shutdown">true</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">true</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath"></stringProp>
+    </TestPlan>
+    <hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Users" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">20</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">0</stringProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+        <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
+      </ThreadGroup>
+      <hashTree>
+        <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+          <collectionProp name="HeaderManager.headers">
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">Authorization</stringProp>
+              <stringProp name="Header.value">Basic c3VucG93ZXJfcWFAc3VucG93ZXIuY29tLnRlc3Q6VGVzdE15cHIwag==</stringProp>
+            </elementProp>
+          </collectionProp>
+        </HeaderManager>
+        <hashTree/>
+        <AuthManager guiclass="AuthPanel" testclass="AuthManager" testname="HTTP Authorization Manager" enabled="false">
+          <collectionProp name="AuthManager.auth_list">
+            <elementProp name="" elementType="Authorization">
+              <stringProp name="Authorization.url">https://use6-cai.dm-us.informaticacloud.com</stringProp>
+              <stringProp name="Authorization.username">sunpower_qa@sunpowercorp.com.prep</stringProp>
+              <stringProp name="Authorization.password">TestMypr0j</stringProp>
+              <stringProp name="Authorization.domain"></stringProp>
+              <stringProp name="Authorization.realm"></stringProp>
+              <stringProp name="Authorization.mechanism">BASIC_DIGEST</stringProp>
+            </elementProp>
+          </collectionProp>
+          <boolProp name="AuthManager.controlledByThreadGroup">false</boolProp>
+        </AuthManager>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="CustomerAccount" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+   &quot;process_customer_account_request&quot;: {&#xd;
+      &quot;message_header&quot;: {&#xd;
+         &quot;transaction_id&quot;: &quot;2d000938-2987-2924-56bb-cd1911686b14&quot;,&#xd;
+         &quot;source_system_id&quot;: &quot;SFDC&quot;&#xd;
+      },&#xd;
+      &quot;customer&quot;: {&#xd;
+         &quot;sales_type&quot;: &quot;LEASE&quot;,&#xd;
+         &quot;sales_channel&quot;: &quot;COMBO&quot;,&#xd;
+         &quot;customer_name&quot;: &quot;Oleksandr AutoTest05&quot;,&#xd;
+         &quot;customer_classification&quot;: &quot;HOME OWNER&quot;&#xd;
+      }&#xd;
+   }&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">use6-cai.dm-us.informaticacloud.com</stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/active-bpel/services/REST/daDdsGzWHErkBWI36CLd65/CustomerAccount</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="CustomerSite" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+	&quot;process_customer_request&quot;: {&#xd;
+		&quot;message_header&quot;: {&#xd;
+			&quot;source_system_id&quot;: &quot;sfdc&quot;,&#xd;
+			&quot;transaction_id&quot;: &quot;123456&quot;&#xd;
+		},&#xd;
+		&quot;customer&quot;: {&#xd;
+			&quot;sales_type&quot;: &quot;SPWR_CASH&quot;,&#xd;
+			&quot;sales_channel&quot;: &quot;RVAR&quot;,&#xd;
+			&quot;account_number&quot;: &quot;126029&quot;,&#xd;
+			&quot;customer_name&quot;: &quot;&quot;,&#xd;
+            &quot;customer_classification&quot;: &quot;&quot;&#xd;
+			&#xd;
+		},&#xd;
+		&quot;ship_to_sites&quot;: {&#xd;
+			&quot;ship_to_site&quot;:&#xd;
+			{&#xd;
+				&quot;bill_to_flag&quot;: &quot;N&quot;,&#xd;
+				&quot;ship_to_flag&quot;: &quot;Y&quot;,&#xd;
+				&quot;country&quot;: &quot;United States&quot;,&#xd;
+				&quot;address1&quot;: &quot;34567 SunPower&quot;,&#xd;
+				&quot;address2&quot;: &quot;&quot;,&#xd;
+				&quot;address3&quot;: &quot;&quot;,&#xd;
+				&quot;address4&quot;: &quot;&quot;,&#xd;
+				&quot;city&quot;: &quot;Austin&quot;,&#xd;
+				&quot;postal_code&quot;: &quot;78758&quot;,&#xd;
+				&quot;state&quot;: &quot;TX&quot;,&#xd;
+				&quot;province&quot;: &quot;&quot;,&#xd;
+				&quot;county&quot;: &quot;Travis&quot;,&#xd;
+				&quot;cust_acct_site_id&quot;: &quot;&quot;,&#xd;
+				&quot;cust_account_id&quot;: &quot;&quot;,&#xd;
+				&quot;site_use_id&quot;: &quot;&quot;,&#xd;
+				&quot;site_use_code&quot;: &quot;&quot;,&#xd;
+				&quot;contact_id&quot;: &quot;&quot;&#xd;
+			}&#xd;
+		}&#xd;
+	}&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">use6-cai.dm-us.informaticacloud.com</stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/active-bpel/services/REST/daDdsGzWHErkBWI36CLd65/CustomerSite</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="CreateContact" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+  &quot;process_customer_contact_request&quot;: {&#xd;
+    &quot;message_header&quot;: {&#xd;
+      &quot;transaction_id&quot;: &quot;74e8728d-8e2c-47c9-8a05-f09ceb81c52c&quot;,&#xd;
+      &quot;source_system_id&quot;: &quot;SFDC&quot;&#xd;
+    },&#xd;
+    &quot;contact_request&quot;: {&#xd;
+      &quot;role_type&quot;: null,&#xd;
+      &quot;primary_flag&quot;: null,&#xd;
+      &quot;phone_number&quot;: &quot;(913) 000-0000&quot;,&#xd;
+      &quot;phone_country_code&quot;: null,&#xd;
+      &quot;phone_area_code&quot;: null,&#xd;
+      &quot;person_middle_name&quot;: null,&#xd;
+      &quot;person_last_name&quot;: &quot;Info&quot;,&#xd;
+      &quot;person_first_name&quot;: &quot;Test&quot;,&#xd;
+      &quot;mobile_no&quot;: null,&#xd;
+      &quot;fax_no&quot;: null,&#xd;
+      &quot;email_address&quot;: &quot;test_info@gmail.com&quot;,&#xd;
+      &quot;contact_type&quot;: &quot;SHIP_TO&quot;,&#xd;
+      &quot;account_number&quot;: &quot;126418&quot;&#xd;
+    }&#xd;
+  }&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">use6-cai.dm-us.informaticacloud.com</stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/active-bpel/services/REST/daDdsGzWHErkBWI36CLd65/CustomerContact</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="PriceCheck" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+  &quot;pricing_order_request&quot;: {&#xd;
+    &quot;message_header&quot;: {&#xd;
+      &quot;transaction_id&quot;: &quot;1234&quot;,&#xd;
+      &quot;source_system_id&quot;: &quot;fineng&quot;&#xd;
+    },&#xd;
+    &quot;sales_order&quot;: {&#xd;
+      &quot;order_header&quot;: {&#xd;
+        &quot;channel_type&quot;: &quot;RVAR&quot;,&#xd;
+        &quot;full_monitoring_opt_out&quot;: &quot;N&quot;,&#xd;
+        &quot;racking_opt_out&quot;: &quot;N&quot;,&#xd;
+        &quot;sales_type&quot;: &quot;PURCHASE&quot;,&#xd;
+        &quot;ship_to_state_code&quot;: &quot;CA&quot;,&#xd;
+        &quot;system_count&quot;: 1,&#xd;
+        &quot;country&quot;: &quot;US&quot;,&#xd;
+        &quot;cust_account_number&quot;: &quot;1102&quot;&#xd;
+      },&#xd;
+      &quot;order_lines&quot;: {&#xd;
+        &quot;order_line&quot;: [&#xd;
+          {&#xd;
+            &quot;ordered_quantity&quot;: 24,&#xd;
+            &quot;product_line_type&quot;: &quot;Bundle&quot;,&#xd;
+            &quot;ordered_item&quot;: &quot;530110&quot;&#xd;
+          },&#xd;
+          {&#xd;
+            &quot;ordered_quantity&quot;: 24,&#xd;
+            &quot;product_line_type&quot;: &quot;Bundle&quot;,&#xd;
+            &quot;ordered_item&quot;: &quot;531843&quot;&#xd;
+          }&#xd;
+        ]&#xd;
+      }&#xd;
+    }&#xd;
+  }&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">use6-cai.dm-us.informaticacloud.com</stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/active-bpel/services/REST/Pricing</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="OrderDetails" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">use6-cai.dm-us.informaticacloud.com</stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/active-bpel/services/REST/daDdsGzWHErkBWI36CLd65/SalesOrder/7413267</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="BookedOrders" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">use6-cai.dm-us.informaticacloud.com</stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/active-bpel/services/REST/daDdsGzWHErkBWI36CLd65/SalesOrder?customer_account_number=25633&amp;order_status=OPEN&amp;app=RVAR&amp;sort=order_date:desc</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="CreateOrder" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+  &quot;process_order_request&quot;: {&#xd;
+    &quot;sales_order_collection&quot;: {&#xd;
+      &quot;sales_order&quot;: {&#xd;
+        &quot;sales_order_lines&quot;: [&#xd;
+          {&#xd;
+            &quot;sales_order_line&quot;: {&#xd;
+              &quot;wattage_type&quot;: null,&#xd;
+              &quot;vendor_type&quot;: null,&#xd;
+              &quot;vendor_site_code&quot;: null,&#xd;
+              &quot;vendor_number&quot;: null,&#xd;
+              &quot;unit_selling_price&quot;: null,&#xd;
+              &quot;shipping_method_code&quot;: null,&#xd;
+              &quot;shipping_method&quot;: null,&#xd;
+              &quot;ship_to_state&quot;: null,&#xd;
+              &quot;ship_to_site_id&quot;: null,&#xd;
+              &quot;ship_to_postal_code&quot;: null,&#xd;
+              &quot;ship_to_org_id&quot;: null,&#xd;
+              &quot;ship_to_county&quot;: null,&#xd;
+              &quot;ship_to_country&quot;: null,&#xd;
+              &quot;ship_to_contact_id&quot;: null,&#xd;
+              &quot;ship_to_city&quot;: null,&#xd;
+              &quot;ship_to_address4&quot;: null,&#xd;
+              &quot;ship_to_address3&quot;: null,&#xd;
+              &quot;ship_to_address2&quot;: null,&#xd;
+              &quot;ship_to_address1&quot;: null,&#xd;
+              &quot;ship_from_org_id&quot;: null,&#xd;
+              &quot;schedule_ship_date&quot;: null,&#xd;
+              &quot;schedule_arrival_date&quot;: null,&#xd;
+              &quot;return_status&quot;: null,&#xd;
+              &quot;return_reason_code&quot;: null,&#xd;
+              &quot;return_flag&quot;: null,&#xd;
+              &quot;request_date&quot;: &quot;2021-09-30&quot;,&#xd;
+              &quot;product_type&quot;: &quot;Bundle&quot;,&#xd;
+              &quot;party_type&quot;: null,&#xd;
+              &quot;org_id&quot;: null,&#xd;
+              &quot;ordered_quantity&quot;: &quot;1&quot;,&#xd;
+              &quot;ordered_item&quot;: &quot;102868&quot;,&#xd;
+              &quot;order_quantity_uom&quot;: null,&#xd;
+              &quot;order_line_type&quot;: &quot;Standard Line&quot;,&#xd;
+              &quot;operation&quot;: &quot;CREATE&quot;,&#xd;
+              &quot;line_type_id&quot;: null,&#xd;
+              &quot;line_number&quot;: &quot;1&quot;,&#xd;
+              &quot;line_id&quot;: null,&#xd;
+              &quot;item_type&quot;: null,&#xd;
+              &quot;invoice_to_org_id&quot;: null,&#xd;
+              &quot;invoice_to_contact_id&quot;: null,&#xd;
+              &quot;inventory_item_id&quot;: null,&#xd;
+              &quot;header_id&quot;: null,&#xd;
+              &quot;flow_status_code&quot;: null,&#xd;
+              &quot;crm_order_line_id&quot;: null,&#xd;
+              &quot;crm_id&quot;: null,&#xd;
+              &quot;created_by&quot;: null,&#xd;
+              &quot;context&quot;: null,&#xd;
+              &quot;change_reason&quot;: null,&#xd;
+              &quot;change_comments&quot;: null,&#xd;
+              &quot;cancelled_quantity&quot;: null,&#xd;
+              &quot;cancelled_flag&quot;: null,&#xd;
+              &quot;calculate_price_flag&quot;: null,&#xd;
+              &quot;booked_flag&quot;: null,&#xd;
+              &quot;bill_to_site_id&quot;: null,&#xd;
+              &quot;attribute9&quot;: null,&#xd;
+              &quot;attribute8&quot;: null,&#xd;
+              &quot;attribute7&quot;: null,&#xd;
+              &quot;attribute6&quot;: null,&#xd;
+              &quot;attribute5&quot;: null,&#xd;
+              &quot;attribute4&quot;: null,&#xd;
+              &quot;attribute3&quot;: null,&#xd;
+              &quot;attribute20&quot;: null,&#xd;
+              &quot;attribute2&quot;: null,&#xd;
+              &quot;attribute19&quot;: null,&#xd;
+              &quot;attribute18&quot;: null,&#xd;
+              &quot;attribute17&quot;: null,&#xd;
+              &quot;attribute16&quot;: null,&#xd;
+              &quot;attribute15&quot;: null,&#xd;
+              &quot;attribute14&quot;: null,&#xd;
+              &quot;attribute13&quot;: null,&#xd;
+              &quot;attribute12&quot;: null,&#xd;
+              &quot;attribute11&quot;: null,&#xd;
+              &quot;attribute10&quot;: null,&#xd;
+              &quot;attribute1&quot;: null,&#xd;
+              &quot;arrival_set_id&quot;: null,&#xd;
+              &quot;agreement_id&quot;: null,&#xd;
+              &quot;actual_shipment_date&quot;: null,&#xd;
+              &quot;actual_arrival_date&quot;: null,&#xd;
+              &quot;accounting_rule_id&quot;: null&#xd;
+            }&#xd;
+          },&#xd;
+          {&#xd;
+            &quot;sales_order_line&quot;: {&#xd;
+              &quot;wattage_type&quot;: null,&#xd;
+              &quot;vendor_type&quot;: null,&#xd;
+              &quot;vendor_site_code&quot;: null,&#xd;
+              &quot;vendor_number&quot;: null,&#xd;
+              &quot;unit_selling_price&quot;: null,&#xd;
+              &quot;shipping_method_code&quot;: null,&#xd;
+              &quot;shipping_method&quot;: null,&#xd;
+              &quot;ship_to_state&quot;: null,&#xd;
+              &quot;ship_to_site_id&quot;: null,&#xd;
+              &quot;ship_to_postal_code&quot;: null,&#xd;
+              &quot;ship_to_org_id&quot;: null,&#xd;
+              &quot;ship_to_county&quot;: null,&#xd;
+              &quot;ship_to_country&quot;: null,&#xd;
+              &quot;ship_to_contact_id&quot;: null,&#xd;
+              &quot;ship_to_city&quot;: null,&#xd;
+              &quot;ship_to_address4&quot;: null,&#xd;
+              &quot;ship_to_address3&quot;: null,&#xd;
+              &quot;ship_to_address2&quot;: null,&#xd;
+              &quot;ship_to_address1&quot;: null,&#xd;
+              &quot;ship_from_org_id&quot;: null,&#xd;
+              &quot;schedule_ship_date&quot;: null,&#xd;
+              &quot;schedule_arrival_date&quot;: null,&#xd;
+              &quot;return_status&quot;: null,&#xd;
+              &quot;return_reason_code&quot;: null,&#xd;
+              &quot;return_flag&quot;: null,&#xd;
+              &quot;request_date&quot;: &quot;2021-09-30&quot;,&#xd;
+              &quot;product_type&quot;: &quot;Bundle&quot;,&#xd;
+              &quot;party_type&quot;: null,&#xd;
+              &quot;org_id&quot;: null,&#xd;
+              &quot;ordered_quantity&quot;: &quot;8&quot;,&#xd;
+              &quot;ordered_item&quot;: &quot;530205&quot;,&#xd;
+              &quot;order_quantity_uom&quot;: null,&#xd;
+              &quot;order_line_type&quot;: &quot;Standard Line&quot;,&#xd;
+              &quot;operation&quot;: &quot;CREATE&quot;,&#xd;
+              &quot;line_type_id&quot;: null,&#xd;
+              &quot;line_number&quot;: &quot;2&quot;,&#xd;
+              &quot;line_id&quot;: null,&#xd;
+              &quot;item_type&quot;: null,&#xd;
+              &quot;invoice_to_org_id&quot;: null,&#xd;
+              &quot;invoice_to_contact_id&quot;: null,&#xd;
+              &quot;inventory_item_id&quot;: null,&#xd;
+              &quot;header_id&quot;: null,&#xd;
+              &quot;flow_status_code&quot;: null,&#xd;
+              &quot;crm_order_line_id&quot;: null,&#xd;
+              &quot;crm_id&quot;: null,&#xd;
+              &quot;created_by&quot;: null,&#xd;
+              &quot;context&quot;: null,&#xd;
+              &quot;change_reason&quot;: null,&#xd;
+              &quot;change_comments&quot;: null,&#xd;
+              &quot;cancelled_quantity&quot;: null,&#xd;
+              &quot;cancelled_flag&quot;: null,&#xd;
+              &quot;calculate_price_flag&quot;: null,&#xd;
+              &quot;booked_flag&quot;: null,&#xd;
+              &quot;bill_to_site_id&quot;: null,&#xd;
+              &quot;attribute9&quot;: null,&#xd;
+              &quot;attribute8&quot;: null,&#xd;
+              &quot;attribute7&quot;: null,&#xd;
+              &quot;attribute6&quot;: null,&#xd;
+              &quot;attribute5&quot;: null,&#xd;
+              &quot;attribute4&quot;: null,&#xd;
+              &quot;attribute3&quot;: null,&#xd;
+              &quot;attribute20&quot;: null,&#xd;
+              &quot;attribute2&quot;: null,&#xd;
+              &quot;attribute19&quot;: null,&#xd;
+              &quot;attribute18&quot;: null,&#xd;
+              &quot;attribute17&quot;: null,&#xd;
+              &quot;attribute16&quot;: null,&#xd;
+              &quot;attribute15&quot;: null,&#xd;
+              &quot;attribute14&quot;: null,&#xd;
+              &quot;attribute13&quot;: null,&#xd;
+              &quot;attribute12&quot;: null,&#xd;
+              &quot;attribute11&quot;: null,&#xd;
+              &quot;attribute10&quot;: null,&#xd;
+              &quot;attribute1&quot;: null,&#xd;
+              &quot;arrival_set_id&quot;: null,&#xd;
+              &quot;agreement_id&quot;: null,&#xd;
+              &quot;actual_shipment_date&quot;: null,&#xd;
+              &quot;actual_arrival_date&quot;: null,&#xd;
+              &quot;accounting_rule_id&quot;: null&#xd;
+            }&#xd;
+          },&#xd;
+          {&#xd;
+            &quot;sales_order_line&quot;: {&#xd;
+              &quot;wattage_type&quot;: null,&#xd;
+              &quot;vendor_type&quot;: null,&#xd;
+              &quot;vendor_site_code&quot;: null,&#xd;
+              &quot;vendor_number&quot;: null,&#xd;
+              &quot;unit_selling_price&quot;: null,&#xd;
+              &quot;shipping_method_code&quot;: null,&#xd;
+              &quot;shipping_method&quot;: null,&#xd;
+              &quot;ship_to_state&quot;: null,&#xd;
+              &quot;ship_to_site_id&quot;: null,&#xd;
+              &quot;ship_to_postal_code&quot;: null,&#xd;
+              &quot;ship_to_org_id&quot;: null,&#xd;
+              &quot;ship_to_county&quot;: null,&#xd;
+              &quot;ship_to_country&quot;: null,&#xd;
+              &quot;ship_to_contact_id&quot;: null,&#xd;
+              &quot;ship_to_city&quot;: null,&#xd;
+              &quot;ship_to_address4&quot;: null,&#xd;
+              &quot;ship_to_address3&quot;: null,&#xd;
+              &quot;ship_to_address2&quot;: null,&#xd;
+              &quot;ship_to_address1&quot;: null,&#xd;
+              &quot;ship_from_org_id&quot;: null,&#xd;
+              &quot;schedule_ship_date&quot;: null,&#xd;
+              &quot;schedule_arrival_date&quot;: null,&#xd;
+              &quot;return_status&quot;: null,&#xd;
+              &quot;return_reason_code&quot;: null,&#xd;
+              &quot;return_flag&quot;: null,&#xd;
+              &quot;request_date&quot;: &quot;2021-09-30&quot;,&#xd;
+              &quot;product_type&quot;: &quot;Bundle&quot;,&#xd;
+              &quot;party_type&quot;: null,&#xd;
+              &quot;org_id&quot;: null,&#xd;
+              &quot;ordered_quantity&quot;: &quot;1&quot;,&#xd;
+              &quot;ordered_item&quot;: &quot;529027&quot;,&#xd;
+              &quot;order_quantity_uom&quot;: null,&#xd;
+              &quot;order_line_type&quot;: &quot;Standard Line&quot;,&#xd;
+              &quot;operation&quot;: &quot;CREATE&quot;,&#xd;
+              &quot;line_type_id&quot;: null,&#xd;
+              &quot;line_number&quot;: &quot;3&quot;,&#xd;
+              &quot;line_id&quot;: null,&#xd;
+              &quot;item_type&quot;: null,&#xd;
+              &quot;invoice_to_org_id&quot;: null,&#xd;
+              &quot;invoice_to_contact_id&quot;: null,&#xd;
+              &quot;inventory_item_id&quot;: null,&#xd;
+              &quot;header_id&quot;: null,&#xd;
+              &quot;flow_status_code&quot;: null,&#xd;
+              &quot;crm_order_line_id&quot;: null,&#xd;
+              &quot;crm_id&quot;: null,&#xd;
+              &quot;created_by&quot;: null,&#xd;
+              &quot;context&quot;: null,&#xd;
+              &quot;change_reason&quot;: null,&#xd;
+              &quot;change_comments&quot;: null,&#xd;
+              &quot;cancelled_quantity&quot;: null,&#xd;
+              &quot;cancelled_flag&quot;: null,&#xd;
+              &quot;calculate_price_flag&quot;: null,&#xd;
+              &quot;booked_flag&quot;: null,&#xd;
+              &quot;bill_to_site_id&quot;: null,&#xd;
+              &quot;attribute9&quot;: null,&#xd;
+              &quot;attribute8&quot;: null,&#xd;
+              &quot;attribute7&quot;: null,&#xd;
+              &quot;attribute6&quot;: null,&#xd;
+              &quot;attribute5&quot;: null,&#xd;
+              &quot;attribute4&quot;: null,&#xd;
+              &quot;attribute3&quot;: null,&#xd;
+              &quot;attribute20&quot;: null,&#xd;
+              &quot;attribute2&quot;: null,&#xd;
+              &quot;attribute19&quot;: null,&#xd;
+              &quot;attribute18&quot;: null,&#xd;
+              &quot;attribute17&quot;: null,&#xd;
+              &quot;attribute16&quot;: null,&#xd;
+              &quot;attribute15&quot;: null,&#xd;
+              &quot;attribute14&quot;: null,&#xd;
+              &quot;attribute13&quot;: null,&#xd;
+              &quot;attribute12&quot;: null,&#xd;
+              &quot;attribute11&quot;: null,&#xd;
+              &quot;attribute10&quot;: null,&#xd;
+              &quot;attribute1&quot;: null,&#xd;
+              &quot;arrival_set_id&quot;: null,&#xd;
+              &quot;agreement_id&quot;: null,&#xd;
+              &quot;actual_shipment_date&quot;: null,&#xd;
+              &quot;actual_arrival_date&quot;: null,&#xd;
+              &quot;accounting_rule_id&quot;: null&#xd;
+            }&#xd;
+          },&#xd;
+          {&#xd;
+            &quot;sales_order_line&quot;: {&#xd;
+              &quot;wattage_type&quot;: null,&#xd;
+              &quot;vendor_type&quot;: null,&#xd;
+              &quot;vendor_site_code&quot;: null,&#xd;
+              &quot;vendor_number&quot;: null,&#xd;
+              &quot;unit_selling_price&quot;: null,&#xd;
+              &quot;shipping_method_code&quot;: null,&#xd;
+              &quot;shipping_method&quot;: null,&#xd;
+              &quot;ship_to_state&quot;: null,&#xd;
+              &quot;ship_to_site_id&quot;: null,&#xd;
+              &quot;ship_to_postal_code&quot;: null,&#xd;
+              &quot;ship_to_org_id&quot;: null,&#xd;
+              &quot;ship_to_county&quot;: null,&#xd;
+              &quot;ship_to_country&quot;: null,&#xd;
+              &quot;ship_to_contact_id&quot;: null,&#xd;
+              &quot;ship_to_city&quot;: null,&#xd;
+              &quot;ship_to_address4&quot;: null,&#xd;
+              &quot;ship_to_address3&quot;: null,&#xd;
+              &quot;ship_to_address2&quot;: null,&#xd;
+              &quot;ship_to_address1&quot;: null,&#xd;
+              &quot;ship_from_org_id&quot;: null,&#xd;
+              &quot;schedule_ship_date&quot;: null,&#xd;
+              &quot;schedule_arrival_date&quot;: null,&#xd;
+              &quot;return_status&quot;: null,&#xd;
+              &quot;return_reason_code&quot;: null,&#xd;
+              &quot;return_flag&quot;: null,&#xd;
+              &quot;request_date&quot;: &quot;2021-09-30&quot;,&#xd;
+              &quot;product_type&quot;: &quot;Bundle&quot;,&#xd;
+              &quot;party_type&quot;: null,&#xd;
+              &quot;org_id&quot;: null,&#xd;
+              &quot;ordered_quantity&quot;: &quot;1&quot;,&#xd;
+              &quot;ordered_item&quot;: &quot;532173&quot;,&#xd;
+              &quot;order_quantity_uom&quot;: null,&#xd;
+              &quot;order_line_type&quot;: &quot;Standard Line&quot;,&#xd;
+              &quot;operation&quot;: &quot;CREATE&quot;,&#xd;
+              &quot;line_type_id&quot;: null,&#xd;
+              &quot;line_number&quot;: &quot;4&quot;,&#xd;
+              &quot;line_id&quot;: null,&#xd;
+              &quot;item_type&quot;: null,&#xd;
+              &quot;invoice_to_org_id&quot;: null,&#xd;
+              &quot;invoice_to_contact_id&quot;: null,&#xd;
+              &quot;inventory_item_id&quot;: null,&#xd;
+              &quot;header_id&quot;: null,&#xd;
+              &quot;flow_status_code&quot;: null,&#xd;
+              &quot;crm_order_line_id&quot;: null,&#xd;
+              &quot;crm_id&quot;: null,&#xd;
+              &quot;created_by&quot;: null,&#xd;
+              &quot;context&quot;: null,&#xd;
+              &quot;change_reason&quot;: null,&#xd;
+              &quot;change_comments&quot;: null,&#xd;
+              &quot;cancelled_quantity&quot;: null,&#xd;
+              &quot;cancelled_flag&quot;: null,&#xd;
+              &quot;calculate_price_flag&quot;: null,&#xd;
+              &quot;booked_flag&quot;: null,&#xd;
+              &quot;bill_to_site_id&quot;: null,&#xd;
+              &quot;attribute9&quot;: null,&#xd;
+              &quot;attribute8&quot;: null,&#xd;
+              &quot;attribute7&quot;: null,&#xd;
+              &quot;attribute6&quot;: null,&#xd;
+              &quot;attribute5&quot;: null,&#xd;
+              &quot;attribute4&quot;: null,&#xd;
+              &quot;attribute3&quot;: null,&#xd;
+              &quot;attribute20&quot;: null,&#xd;
+              &quot;attribute2&quot;: null,&#xd;
+              &quot;attribute19&quot;: null,&#xd;
+              &quot;attribute18&quot;: null,&#xd;
+              &quot;attribute17&quot;: null,&#xd;
+              &quot;attribute16&quot;: null,&#xd;
+              &quot;attribute15&quot;: null,&#xd;
+              &quot;attribute14&quot;: null,&#xd;
+              &quot;attribute13&quot;: null,&#xd;
+              &quot;attribute12&quot;: null,&#xd;
+              &quot;attribute11&quot;: null,&#xd;
+              &quot;attribute10&quot;: null,&#xd;
+              &quot;attribute1&quot;: null,&#xd;
+              &quot;arrival_set_id&quot;: null,&#xd;
+              &quot;agreement_id&quot;: null,&#xd;
+              &quot;actual_shipment_date&quot;: null,&#xd;
+              &quot;actual_arrival_date&quot;: null,&#xd;
+              &quot;accounting_rule_id&quot;: null&#xd;
+            }&#xd;
+          },&#xd;
+          {&#xd;
+            &quot;sales_order_line&quot;: {&#xd;
+              &quot;wattage_type&quot;: null,&#xd;
+              &quot;vendor_type&quot;: null,&#xd;
+              &quot;vendor_site_code&quot;: null,&#xd;
+              &quot;vendor_number&quot;: null,&#xd;
+              &quot;unit_selling_price&quot;: null,&#xd;
+              &quot;shipping_method_code&quot;: null,&#xd;
+              &quot;shipping_method&quot;: null,&#xd;
+              &quot;ship_to_state&quot;: null,&#xd;
+              &quot;ship_to_site_id&quot;: null,&#xd;
+              &quot;ship_to_postal_code&quot;: null,&#xd;
+              &quot;ship_to_org_id&quot;: null,&#xd;
+              &quot;ship_to_county&quot;: null,&#xd;
+              &quot;ship_to_country&quot;: null,&#xd;
+              &quot;ship_to_contact_id&quot;: null,&#xd;
+              &quot;ship_to_city&quot;: null,&#xd;
+              &quot;ship_to_address4&quot;: null,&#xd;
+              &quot;ship_to_address3&quot;: null,&#xd;
+              &quot;ship_to_address2&quot;: null,&#xd;
+              &quot;ship_to_address1&quot;: null,&#xd;
+              &quot;ship_from_org_id&quot;: null,&#xd;
+              &quot;schedule_ship_date&quot;: null,&#xd;
+              &quot;schedule_arrival_date&quot;: null,&#xd;
+              &quot;return_status&quot;: null,&#xd;
+              &quot;return_reason_code&quot;: null,&#xd;
+              &quot;return_flag&quot;: null,&#xd;
+              &quot;request_date&quot;: &quot;2021-09-30&quot;,&#xd;
+              &quot;product_type&quot;: &quot;Bundle&quot;,&#xd;
+              &quot;party_type&quot;: null,&#xd;
+              &quot;org_id&quot;: null,&#xd;
+              &quot;ordered_quantity&quot;: &quot;1&quot;,&#xd;
+              &quot;ordered_item&quot;: &quot;534278&quot;,&#xd;
+              &quot;order_quantity_uom&quot;: null,&#xd;
+              &quot;order_line_type&quot;: &quot;Standard Line&quot;,&#xd;
+              &quot;operation&quot;: &quot;CREATE&quot;,&#xd;
+              &quot;line_type_id&quot;: null,&#xd;
+              &quot;line_number&quot;: &quot;5&quot;,&#xd;
+              &quot;line_id&quot;: null,&#xd;
+              &quot;item_type&quot;: null,&#xd;
+              &quot;invoice_to_org_id&quot;: null,&#xd;
+              &quot;invoice_to_contact_id&quot;: null,&#xd;
+              &quot;inventory_item_id&quot;: null,&#xd;
+              &quot;header_id&quot;: null,&#xd;
+              &quot;flow_status_code&quot;: null,&#xd;
+              &quot;crm_order_line_id&quot;: null,&#xd;
+              &quot;crm_id&quot;: null,&#xd;
+              &quot;created_by&quot;: null,&#xd;
+              &quot;context&quot;: null,&#xd;
+              &quot;change_reason&quot;: null,&#xd;
+              &quot;change_comments&quot;: null,&#xd;
+              &quot;cancelled_quantity&quot;: null,&#xd;
+              &quot;cancelled_flag&quot;: null,&#xd;
+              &quot;calculate_price_flag&quot;: null,&#xd;
+              &quot;booked_flag&quot;: null,&#xd;
+              &quot;bill_to_site_id&quot;: null,&#xd;
+              &quot;attribute9&quot;: null,&#xd;
+              &quot;attribute8&quot;: null,&#xd;
+              &quot;attribute7&quot;: null,&#xd;
+              &quot;attribute6&quot;: null,&#xd;
+              &quot;attribute5&quot;: null,&#xd;
+              &quot;attribute4&quot;: null,&#xd;
+              &quot;attribute3&quot;: null,&#xd;
+              &quot;attribute20&quot;: null,&#xd;
+              &quot;attribute2&quot;: null,&#xd;
+              &quot;attribute19&quot;: null,&#xd;
+              &quot;attribute18&quot;: null,&#xd;
+              &quot;attribute17&quot;: null,&#xd;
+              &quot;attribute16&quot;: null,&#xd;
+              &quot;attribute15&quot;: null,&#xd;
+              &quot;attribute14&quot;: null,&#xd;
+              &quot;attribute13&quot;: null,&#xd;
+              &quot;attribute12&quot;: null,&#xd;
+              &quot;attribute11&quot;: null,&#xd;
+              &quot;attribute10&quot;: null,&#xd;
+              &quot;attribute1&quot;: null,&#xd;
+              &quot;arrival_set_id&quot;: null,&#xd;
+              &quot;agreement_id&quot;: null,&#xd;
+              &quot;actual_shipment_date&quot;: null,&#xd;
+              &quot;actual_arrival_date&quot;: null,&#xd;
+              &quot;accounting_rule_id&quot;: null&#xd;
+            }&#xd;
+          }&#xd;
+        ],&#xd;
+        &quot;sales_order_header&quot;: {&#xd;
+          &quot;warehouse_org_id&quot;: null,&#xd;
+          &quot;vendor_site_code&quot;: null,&#xd;
+          &quot;vendor_number&quot;: null,&#xd;
+          &quot;transactional_curr_code&quot;: null,&#xd;
+          &quot;tax_identifier&quot;: null,&#xd;
+          &quot;special_instructions&quot;: &quot;||Job Site - Residence|No||No|None|&quot;,&#xd;
+          &quot;sold_to_org_id&quot;: null,&#xd;
+          &quot;sold_from_org_id&quot;: null,&#xd;
+          &quot;smartpack_flag&quot;: null,&#xd;
+          &quot;shipping_method_code&quot;: null,&#xd;
+          &quot;shipping_method&quot;: null,&#xd;
+          &quot;shipping_instructions&quot;: null,&#xd;
+          &quot;ship_to_state&quot;: null,&#xd;
+          &quot;ship_to_site_id&quot;: &quot;1487841&quot;,&#xd;
+          &quot;ship_to_postal_code&quot;: null,&#xd;
+          &quot;ship_to_org_id&quot;: null,&#xd;
+          &quot;ship_to_county&quot;: null,&#xd;
+          &quot;ship_to_country&quot;: null,&#xd;
+          &quot;ship_to_contact_id&quot;: &quot;2886763&quot;,&#xd;
+          &quot;ship_to_contact&quot;: null,&#xd;
+          &quot;ship_to_city&quot;: null,&#xd;
+          &quot;ship_to_address4&quot;: null,&#xd;
+          &quot;ship_to_address3&quot;: null,&#xd;
+          &quot;ship_to_address2&quot;: null,&#xd;
+          &quot;ship_to_address1&quot;: null,&#xd;
+          &quot;ship_from_org_id&quot;: null,&#xd;
+          &quot;salesrep_id&quot;: null,&#xd;
+          &quot;sales_type&quot;: &quot;PURCHASE&quot;,&#xd;
+          &quot;sales_channel_code&quot;: null,&#xd;
+          &quot;return_status&quot;: null,&#xd;
+          &quot;return_flag&quot;: null,&#xd;
+          &quot;request_date&quot;: &quot;2021-09-30&quot;,&#xd;
+          &quot;racking_opt_out&quot;: &quot;Y&quot;,&#xd;
+          &quot;psr_name&quot;: null,&#xd;
+          &quot;psr_email_id&quot;: null,&#xd;
+          &quot;price_list_id&quot;: null,&#xd;
+          &quot;payment_term_id&quot;: null,&#xd;
+          &quot;party_type&quot;: null,&#xd;
+          &quot;partner_name&quot;: null,&#xd;
+          &quot;partner_acc_number&quot;: null,&#xd;
+          &quot;order_type_name&quot;: null,&#xd;
+          &quot;order_type_id&quot;: null,&#xd;
+          &quot;order_source_id&quot;: null,&#xd;
+          &quot;order_number&quot;: null,&#xd;
+          &quot;oracle_user_id&quot;: null,&#xd;
+          &quot;operation&quot;: &quot;CREATE&quot;,&#xd;
+          &quot;ok_to_ship_flag&quot;: &quot;RELEASE&quot;,&#xd;
+          &quot;new_order_class&quot;: null,&#xd;
+          &quot;monitoring_opt_out&quot;: null,&#xd;
+          &quot;invoice_to_org_id&quot;: null,&#xd;
+          &quot;invoice_to_contact_id&quot;: null,&#xd;
+          &quot;inverter_type&quot;: null,&#xd;
+          &quot;interface_message&quot;: null,&#xd;
+          &quot;header_id&quot;: null,&#xd;
+          &quot;freight_terms_code&quot;: null,&#xd;
+          &quot;financier&quot;: null,&#xd;
+          &quot;data_source&quot;: &quot;SFDC&quot;,&#xd;
+          &quot;cust_po_number&quot;: &quot;ManualTest Noser 630&quot;,&#xd;
+          &quot;cust_acct_number&quot;: &quot;25633&quot;,&#xd;
+          &quot;crm_id&quot;: null,&#xd;
+          &quot;country&quot;: null,&#xd;
+          &quot;channel_type&quot;: &quot;RVAR&quot;,&#xd;
+          &quot;change_requester&quot;: &quot;EXTERNAL&quot;,&#xd;
+          &quot;change_reason&quot;: null,&#xd;
+          &quot;change_comments&quot;: null,&#xd;
+          &quot;cancelled_flag&quot;: null,&#xd;
+          &quot;bill_to_state&quot;: null,&#xd;
+          &quot;bill_to_site_id&quot;: &quot;113552&quot;,&#xd;
+          &quot;bill_to_postal_code&quot;: null,&#xd;
+          &quot;bill_to_county&quot;: null,&#xd;
+          &quot;bill_to_country&quot;: null,&#xd;
+          &quot;bill_to_contact_id&quot;: null,&#xd;
+          &quot;bill_to_contact&quot;: null,&#xd;
+          &quot;bill_to_city&quot;: null,&#xd;
+          &quot;bill_to_address4&quot;: null,&#xd;
+          &quot;bill_to_address3&quot;: null,&#xd;
+          &quot;bill_to_address2&quot;: null,&#xd;
+          &quot;bill_to_address1&quot;: null,&#xd;
+          &quot;attribute9&quot;: null,&#xd;
+          &quot;attribute8&quot;: null,&#xd;
+          &quot;attribute7&quot;: null,&#xd;
+          &quot;attribute6&quot;: null,&#xd;
+          &quot;attribute5&quot;: null,&#xd;
+          &quot;attribute4&quot;: null,&#xd;
+          &quot;attribute3&quot;: null,&#xd;
+          &quot;attribute20&quot;: null,&#xd;
+          &quot;attribute2&quot;: null,&#xd;
+          &quot;attribute19&quot;: null,&#xd;
+          &quot;attribute18&quot;: &quot;STANDARD&quot;,&#xd;
+          &quot;attribute17&quot;: null,&#xd;
+          &quot;attribute16&quot;: null,&#xd;
+          &quot;attribute15&quot;: null,&#xd;
+          &quot;attribute14&quot;: null,&#xd;
+          &quot;attribute13&quot;: null,&#xd;
+          &quot;attribute12&quot;: null,&#xd;
+          &quot;attribute11&quot;: null,&#xd;
+          &quot;attribute10&quot;: null,&#xd;
+          &quot;attribute1&quot;: null,&#xd;
+          &quot;accounting_rule_id&quot;: null&#xd;
+        }&#xd;
+      }&#xd;
+    },&#xd;
+    &quot;message_header&quot;: {&#xd;
+      &quot;transaction_id&quot;: &quot;61b2b1fb-60b7-8b6a-b92c-972979f9aebf&quot;,&#xd;
+      &quot;source_system_id&quot;: &quot;SFDC&quot;&#xd;
+    }&#xd;
+  }&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">use6-cai.dm-us.informaticacloud.com</stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/active-bpel/services/REST/daDdsGzWHErkBWI36CLd65/SalesOrder</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="StatementOfAccountDetails" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">use6-cai.dm-us.informaticacloud.com</stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/active-bpel/rt/StatementOfAccountDetails?account_number=25633</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="CRDnHolidays" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">use6-cai.dm-us.informaticacloud.com</stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/active-bpel/services/REST/daDdsGzWHErkBWI36CLd65/OMUtils/OrderManagementDates?sales_type=PURCHASE&amp;channel_type=RVAR&amp;country=US&amp;state=CA&amp;city=Sunnyvale&amp;zipcode=94086</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree/>
+        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <url>true</url>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+        <ResultCollector guiclass="TableVisualizer" testclass="ResultCollector" testname="View Results in Table" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <url>true</url>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+        <ResultCollector guiclass="SummaryReport" testclass="ResultCollector" testname="Summary Report" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <url>true</url>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+      </hashTree>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>
